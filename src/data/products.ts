@@ -1,12 +1,15 @@
 import type { Product } from '../types';
 
+const img = (photo: string) =>
+  `https://images.unsplash.com/${photo}?w=420&h=315&fit=crop&auto=format&fm=webp&q=66`;
+
 export const products: Product[] = [
   {
     id: 'marmita-pequena',
     name: 'Marmita Pequena',
     description: 'Arroz, feijão, 1 tipo de carne, farofa e salada.',
     price: 16,
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1512058564366-18510be2db19'),
     category: 'marmitas',
   },
   {
@@ -14,7 +17,7 @@ export const products: Product[] = [
     name: 'Marmita Média',
     description: 'Arroz, feijão, 2 tipos de carne, farofa e salada.',
     price: 18,
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1504674900247-0877df9cc836'),
     category: 'marmitas',
   },
   {
@@ -22,7 +25,7 @@ export const products: Product[] = [
     name: 'Marmita Grande',
     description: 'Arroz, feijão, 2 tipos de carne, farofa, salada e acompanhamento.',
     price: 22,
-    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1547592180-85f173990554'),
     category: 'marmitas',
   },
   {
@@ -30,7 +33,7 @@ export const products: Product[] = [
     name: 'Feijoada',
     description: 'Feijoada completa com arroz, couve, farofa e laranja.',
     price: 25,
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1547592166-23ac45744acd'),
     category: 'pratos',
   },
   {
@@ -38,7 +41,7 @@ export const products: Product[] = [
     name: 'Bife Acebolado',
     description: 'Bife suculento com arroz, feijão, farofa e salada.',
     price: 23,
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1544025162-d76694265947'),
     category: 'pratos',
   },
   {
@@ -46,7 +49,7 @@ export const products: Product[] = [
     name: 'Frango Grelhado',
     description: 'Frango grelhado com arroz, feijão, farofa e salada.',
     price: 22,
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1598515214211-89d3c73ae83b'),
     category: 'pratos',
   },
   {
@@ -54,7 +57,7 @@ export const products: Product[] = [
     name: 'Coca-Cola 350ml',
     description: 'Lata bem gelada.',
     price: 6,
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1622483767028-3f66f32aef97'),
     category: 'bebidas',
   },
   {
@@ -62,7 +65,7 @@ export const products: Product[] = [
     name: 'Suco Natural 300ml',
     description: 'Laranja, limão ou maracujá.',
     price: 7,
-    image: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1621506289937-a8e4df240d0b'),
     category: 'bebidas',
   },
   {
@@ -70,7 +73,7 @@ export const products: Product[] = [
     name: 'Água 500ml',
     description: 'Água mineral gelada.',
     price: 4,
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&h=450&fit=crop&auto=format&q=82',
+    image: img('photo-1548839140-29a749e1cf4d'),
     category: 'bebidas',
   },
 ];
