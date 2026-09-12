@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Plus, ImageOff } from 'lucide-react';
 import type { Product } from '../types';
 import { useCartContext } from '../contexts/CartContext';
 import { formatCurrency } from '../utils/currency';
@@ -8,83 +7,55 @@ interface ProductCardProps {
   product: Product;
 }
 
-const categoryImages: Record<string, string> = {
-  'marmita-pequena': 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop',
-  'marmita-media': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop',
-  'marmita-grande': 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop',
-  'feijoada': 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop',
-  'bife-acebolado': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop',
-  'frango-grelhado': 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400&h=300&fit=crop',
-  'coca-cola': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=300&fit=crop',
-  'suco-natural': 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=300&fit=crop',
-  'agua': 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=300&fit=crop',
-};
-
-const categoryEmoji: Record<string, string> = {
-  marmitas: '🍲',
-  pratos: '🍽️',
-  bebidas: '🥤',
-};
-
 export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCartContext();
   const [imgError, setImgError] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
 
-  const imageUrl = categoryImages[product.id];
-  const showImage = imageUrl && !imgError;
-
   const handleAdd = () => {
     addToCart(product);
     setIsAdding(true);
-    setTimeout(() => setIsAdding(false), 300);
+    window.setTimeout(() => setIsAdding(false), 280);
   };
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-baiano-border/40 flex flex-col">
-      {/* Image */}
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-[#FFF8ED] to-[#F5E6D0] flex items-center justify-center overflow-hidden">
-        {showImage ? (
+    <article className="group min-w-0 overflow-hidden rounded-[15px] border border-[#E9DCCF] bg-white shadow-[0_7px_20px_rgba(72,42,25,.075)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(72,42,25,.12)]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(145deg,#FFF1D2,#F2D6B0)]">
+        {!imgError ? (
           <img
-            src={imageUrl}
+            src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
             onError={() => setImgError(true)}
             loading="lazy"
           />
         ) : (
-          <div className="flex flex-col items-center gap-1 text-baiano-text-secondary/40">
-            <span className="text-4xl">{categoryEmoji[product.category] || '🍽️'}</span>
-            <ImageOff className="w-4 h-4" />
+          <div className="absolute inset-0 grid place-items-center p-2 text-center">
+            <div className="relative h-16 w-16 rounded-full bg-white/75 shadow-inner">
+              <div className="absolute inset-[10px] rounded-full bg-[conic-gradient(#6D3D23_0_24%,#F6E0A4_24%_46%,#4D7A39_46%_63%,#D98233_63%_80%,#F5F1E8_80%)]" />
+              <div className="absolute inset-[24px] rounded-full bg-white/85" />
+            </div>
           </div>
         )}
+        <span className="absolute left-2 top-2 rounded-full bg-black/50 px-2 py-1 text-[8px] font-black uppercase tracking-[.08em] text-white backdrop-blur-sm">
+          Caseiro
+        </span>
       </div>
 
-      {/* Content */}
-      <div className="p-3 flex flex-col flex-1">
-        <h3 className="font-bold text-baiano-text text-[13px] leading-tight mb-0.5">{product.name}</h3>
-        <p className="text-[11px] text-baiano-text-secondary leading-snug mb-2 line-clamp-2 flex-1">
-          {product.description}
-        </p>
-
-        <div className="flex items-center justify-between mt-auto">
-          <span className="text-sm font-bold text-baiano-red">
-            {formatCurrency(product.price)}
-          </span>
-
-          <button
-            onClick={handleAdd}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full font-semibold text-[11px] transition-all duration-200 ${
-              isAdding
-                ? 'bg-baiano-green text-white scale-95'
-                : 'bg-baiano-green text-white hover:bg-baiano-green-dark active:scale-95'
-            }`}
-          >
-            <Plus className="w-3 h-3" />
-            Adicionar
-          </button>
-        </div>
+      <div className="flex min-h-[154px] flex-col p-2.5 sm:p-3">
+        <h3 className="min-h-[32px] text-[12px] font-black leading-[1.18] text-[#2A1B16] sm:text-[13px]">{product.name}</h3>
+        <p className="mt-1 line-clamp-3 flex-1 text-[9.5px] font-medium leading-[1.35] text-[#73655D] sm:text-[10.5px]">{product.description}</p>
+        <div className="mt-2 text-[15px] font-black tracking-[-.02em] text-[#D9482B] sm:text-[17px]">{formatCurrency(product.price)}</div>
+        <button
+          onClick={handleAdd}
+          className={`mt-2 flex h-[34px] w-full items-center justify-center gap-1 rounded-[9px] text-[10px] font-black text-white shadow-sm transition sm:text-[11px] ${
+            isAdding ? 'scale-[.97] bg-[#106B43]' : 'bg-[#198754] hover:bg-[#106B43] active:scale-[.97]'
+          }`}
+        >
+          <span className="text-sm leading-none">+</span>
+          {isAdding ? 'Adicionado!' : 'Adicionar'}
+        </button>
       </div>
-    </div>
+    </article>
   );
 }
