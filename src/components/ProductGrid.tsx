@@ -14,8 +14,8 @@ const sectionTitles: Record<Category, { title: string; eyebrow: string }> = {
 };
 
 export function ProductGrid({ category, search }: ProductGridProps) {
+  const q = search.trim().toLowerCase();
   const filtered = products.filter((p) => {
-    const q = search.trim().toLowerCase();
     const matchesCategory = p.category === category;
     const matchesSearch = !q || p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
@@ -26,7 +26,7 @@ export function ProductGrid({ category, search }: ProductGridProps) {
   const meta = sectionTitles[category];
 
   return (
-    <section id={`section-${category}`} className="scroll-mt-5 px-4 pt-6 sm:px-5">
+    <section id={`section-${category}`} className="render-lazy scroll-mt-5 px-4 pt-6 sm:px-5">
       <div className="mb-3 flex items-end justify-between gap-3">
         <div>
           <p className="text-[9px] font-black uppercase tracking-[.18em] text-[#D9482B]">{meta.eyebrow}</p>
