@@ -15,19 +15,21 @@ export function ProductCard({ product }: ProductCardProps) {
   const handleAdd = () => {
     addToCart(product);
     setIsAdding(true);
-    window.setTimeout(() => setIsAdding(false), 280);
+    window.setTimeout(() => setIsAdding(false), 220);
   };
 
   return (
-    <article className="group min-w-0 overflow-hidden rounded-[15px] border border-[#E9DCCF] bg-white shadow-[0_7px_20px_rgba(72,42,25,.075)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(72,42,25,.12)]">
+    <article className="product-card min-w-0 overflow-hidden rounded-[15px] border border-[#E9DCCF] bg-white shadow-[0_4px_12px_rgba(72,42,25,.065)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(145deg,#FFF1D2,#F2D6B0)]">
         {!imgError ? (
           <img
             src={product.image}
             alt={product.name}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+            className="h-full w-full object-cover"
             onError={() => setImgError(true)}
             loading="lazy"
+            decoding="async"
+            draggable={false}
           />
         ) : (
           <div className="absolute inset-0 grid place-items-center p-2 text-center">
@@ -37,7 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
           </div>
         )}
-        <span className="absolute left-2 top-2 rounded-full bg-black/50 px-2 py-1 text-[8px] font-black uppercase tracking-[.08em] text-white backdrop-blur-sm">
+        <span className="absolute left-2 top-2 rounded-full bg-black/50 px-2 py-1 text-[8px] font-black uppercase tracking-[.08em] text-white">
           Caseiro
         </span>
       </div>
@@ -48,8 +50,8 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="mt-2 text-[15px] font-black tracking-[-.02em] text-[#D9482B] sm:text-[17px]">{formatCurrency(product.price)}</div>
         <button
           onClick={handleAdd}
-          className={`mt-2 flex h-[34px] w-full items-center justify-center gap-1 rounded-[9px] text-[10px] font-black text-white shadow-sm transition sm:text-[11px] ${
-            isAdding ? 'scale-[.97] bg-[#106B43]' : 'bg-[#198754] hover:bg-[#106B43] active:scale-[.97]'
+          className={`mt-2 flex h-[34px] w-full items-center justify-center gap-1 rounded-[9px] text-[10px] font-black text-white shadow-sm transition-colors sm:text-[11px] ${
+            isAdding ? 'bg-[#106B43]' : 'bg-[#198754] hover:bg-[#106B43]'
           }`}
         >
           <span className="text-sm leading-none">+</span>
