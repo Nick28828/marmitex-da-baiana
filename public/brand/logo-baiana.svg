@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Marmitex da Baiana</title>
+  <desc id="desc">Ilustração de uma baiana sorridente com turbante colorido.</desc>
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="25%" r="80%">
+      <stop offset="0" stop-color="#fff7cf"/>
+      <stop offset="1" stop-color="#ffe08a"/>
+    </radialGradient>
+    <linearGradient id="turban" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7b733"/>
+      <stop offset=".48" stop-color="#f28c28"/>
+      <stop offset="1" stop-color="#d9482b"/>
+    </linearGradient>
+    <linearGradient id="dress" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fff2dc"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#7b2f1f" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <circle cx="110" cy="110" r="104" fill="url(#bg)"/>
+  <circle cx="110" cy="110" r="101" fill="none" stroke="#fff" stroke-width="6" opacity=".9"/>
+  <g opacity=".25" fill="#198754">
+    <path d="M26 78c14-25 28-31 37-29-12 7-18 18-22 31z"/>
+    <path d="M190 70c-8-20-21-31-36-34 11 10 15 20 16 35z"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M50 207c2-34 22-55 60-55s58 21 60 55z" fill="#d9482b"/>
+    <path d="M62 207c5-26 19-42 48-42s43 16 48 42z" fill="url(#dress)"/>
+    <path d="M74 171c9 8 21 12 36 12s27-4 36-12" fill="none" stroke="#f7b733" stroke-width="9" stroke-linecap="round"/>
+    <ellipse cx="110" cy="111" rx="45" ry="49" fill="#8c5a3c"/>
+    <ellipse cx="74" cy="116" rx="6" ry="9" fill="#815238"/>
+    <ellipse cx="146" cy="116" rx="6" ry="9" fill="#815238"/>
+    <ellipse cx="75" cy="119" rx="8" ry="12" fill="none" stroke="#f7b733" stroke-width="4"/>
+    <ellipse cx="145" cy="119" rx="8" ry="12" fill="none" stroke="#f7b733" stroke-width="4"/>
+    <path d="M78 97c7-5 16-6 24-2" fill="none" stroke="#4a2c20" stroke-width="4" stroke-linecap="round"/>
+    <path d="M118 95c8-4 17-3 24 2" fill="none" stroke="#4a2c20" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="91" cy="107" rx="4.5" ry="5.5" fill="#2a1b16"/>
+    <ellipse cx="129" cy="107" rx="4.5" ry="5.5" fill="#2a1b16"/>
+    <circle cx="92" cy="105" r="1.4" fill="#fff"/>
+    <circle cx="130" cy="105" r="1.4" fill="#fff"/>
+    <path d="M108 111c-2 7-3 13-1 17 2 2 5 2 8 1" fill="none" stroke="#6e412f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M88 137c10 14 34 15 45 0-15 5-30 5-45 0z" fill="#7a241d"/>
+    <path d="M93 138c11 7 24 7 35 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M65 93c-5-33 14-64 46-64 34 0 50 29 44 64-8-17-22-27-43-28-20-1-37 9-47 28z" fill="#3d251b"/>
+    <path d="M56 84c3-38 27-66 58-66 29 0 53 20 58 52-19-12-38-17-57-15-23 2-42 12-59 29z" fill="url(#turban)"/>
+    <path d="M72 54c24 13 48 14 75 1" fill="none" stroke="#f7b733" stroke-width="14" stroke-linecap="round" opacity=".95"/>
+    <path d="M89 31c8 12 18 22 31 30" fill="none" stroke="#d9482b" stroke-width="12" stroke-linecap="round"/>
+    <path d="M124 24c-2 15-8 28-18 39" fill="none" stroke="#fff0a7" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+    <path d="M151 31c-10 13-21 22-34 29" fill="none" stroke="#f28c28" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g fill="#198754" opacity=".7">
+    <path d="M31 160c15-10 25-12 34-10-10 4-18 12-24 23z"/>
+    <path d="M188 156c-12-8-23-10-33-7 10 4 17 11 23 20z"/>
+  </g>
+</svg>
