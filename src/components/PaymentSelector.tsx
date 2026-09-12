@@ -1,5 +1,4 @@
 import type { PaymentMethod } from '../types';
-import { Banknote, CreditCard, QrCode } from 'lucide-react';
 
 interface PaymentSelectorProps {
   value: PaymentMethod;
@@ -7,40 +6,25 @@ interface PaymentSelectorProps {
 }
 
 const methods = [
-  { id: 'pix' as const, label: 'Pix', icon: QrCode },
-  { id: 'dinheiro' as const, label: 'Dinheiro', icon: Banknote },
-  { id: 'cartao' as const, label: 'Cartão', icon: CreditCard },
+  { id: 'pix' as const, label: 'Pix', icon: '◆' },
+  { id: 'dinheiro' as const, label: 'Dinheiro', icon: 'R$' },
+  { id: 'cartao' as const, label: 'Cartão', icon: '▣' },
 ];
 
 export function PaymentSelector({ value, onChange }: PaymentSelectorProps) {
   return (
-    <div className="grid grid-cols-3 gap-3">
-      {methods.map((m) => {
-        const Icon = m.icon;
-        const isActive = value === m.id;
-
+    <div className="grid grid-cols-3 gap-2.5">
+      {methods.map((method) => {
+        const active = value === method.id;
         return (
           <button
-            key={m.id}
-            onClick={() => onChange(m.id)}
-            className={`p-3 rounded-xl border-2 text-center transition-all ${
-              isActive
-                ? 'border-baiano-green bg-baiano-green/5 shadow-sm'
-                : 'border-baiano-border bg-white hover:border-baiano-text-secondary/30'
-            }`}
+            type="button"
+            key={method.id}
+            onClick={() => onChange(method.id)}
+            className={`rounded-[14px] border p-3 text-center transition ${active ? 'border-[#198754] bg-[#ECF8F1] shadow-sm' : 'border-[#E2D4C7] bg-[#FFFDF9] hover:border-[#BCA99A]'}`}
           >
-            <Icon
-              className={`w-5 h-5 mx-auto mb-1 ${
-                isActive ? 'text-baiano-green' : 'text-baiano-text-secondary'
-              }`}
-            />
-            <span
-              className={`font-semibold text-xs ${
-                isActive ? 'text-baiano-green' : 'text-baiano-text'
-              }`}
-            >
-              {m.label}
-            </span>
+            <span className={`mx-auto grid h-8 w-8 place-items-center rounded-full text-[11px] font-black ${active ? 'bg-[#198754] text-white' : 'bg-[#F3E8DC] text-[#6A5145]'}`}>{method.icon}</span>
+            <span className={`mt-1.5 block text-[11px] font-black ${active ? 'text-[#106B43]' : 'text-[#4A2A1E]'}`}>{method.label}</span>
           </button>
         );
       })}
