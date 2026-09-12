@@ -1,4 +1,3 @@
-import { ShoppingCart } from 'lucide-react';
 import { useCartContext } from '../contexts/CartContext';
 import { useStoreStatus } from '../hooks/useStoreStatus';
 
@@ -7,95 +6,59 @@ export function Header() {
   const { isOpen } = useStoreStatus();
 
   return (
-    <header className="relative overflow-hidden bg-gradient-to-br from-[#F7B733] via-[#F28C28] to-[#E67E22]">
-      {/* Decorative silhouettes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg className="absolute -left-4 top-0 w-28 h-28 text-white/10" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50 5 C55 5, 58 15, 55 25 C52 35, 48 35, 45 25 C42 15, 45 5, 50 5Z M40 25 C35 20, 30 25, 35 35 C40 45, 45 40, 40 25Z M60 25 C65 20, 70 25, 65 35 C60 45, 55 40, 60 25Z M50 30 L48 80 L52 80 Z"/>
+    <header className="relative overflow-hidden bg-[linear-gradient(135deg,#F7B733_0%,#F28C28_58%,#D9482B_118%)] text-[#2A1B16]">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -left-14 -top-14 h-44 w-44 rounded-full border-[28px] border-white/10" />
+        <div className="absolute -right-20 top-4 h-52 w-52 rounded-full bg-white/8" />
+        <svg className="absolute bottom-0 left-0 h-20 w-full text-[#8C3E24]/20" viewBox="0 0 600 100" preserveAspectRatio="none" fill="currentColor">
+          <path d="M0 84h42V58h12V41h10v17h11v26h37V68h17V51h12v17h20V84h42V63h12V45h10v18h8v21h47V55h9V35h11v20h12v29h47V65h15V48h10v17h20v19h41V57h10V40h12v17h16v27h53v16H0z" />
         </svg>
-        <svg className="absolute -right-2 top-2 w-20 h-20 text-white/10" viewBox="0 0 100 100" fill="currentColor">
-          <rect x="45" y="10" width="10" height="70" rx="2"/>
-          <rect x="20" y="30" width="60" height="4" rx="2"/>
-          <circle cx="50" cy="10" r="8"/>
-        </svg>
-        <svg className="absolute right-12 -bottom-2 w-16 h-16 text-white/10" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50 10 C55 10, 60 20, 55 30 C50 40, 45 35, 40 25 C35 15, 45 10, 50 10Z"/>
-          <path d="M30 35 C25 30, 20 35, 25 45 C30 55, 35 50, 30 35Z"/>
-          <path d="M70 35 C75 30, 80 35, 75 45 C70 55, 65 50, 70 35Z"/>
+        <svg className="absolute right-5 top-12 h-24 w-24 text-[#106B43]/18" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M51 93h-6l3-51h5zM50 36C39 23 25 21 14 26c13 2 23 8 31 17-4-17 0-29 9-37 1 14 0 25-3 34 11-14 24-19 38-16-13 6-23 13-31 22 13-5 24-4 34 2-16 1-28 4-38 9z" />
         </svg>
       </div>
 
-      <div className="relative z-10 px-4 pt-4 pb-5 safe-bottom">
-        <div className="flex items-center justify-between max-w-lg mx-auto">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full bg-white/95 shadow-lg flex items-center justify-center overflow-hidden border-3 border-white">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <circle cx="50" cy="50" r="50" fill="#FFF8ED"/>
-                {/* Face */}
-                <ellipse cx="50" cy="45" rx="22" ry="24" fill="#8B5E3C"/>
-                {/* Turban */}
-                <path d="M28 38 C28 20, 50 12, 72 20 C72 28, 65 32, 50 30 C35 28, 28 32, 28 38Z" fill="#F7B733"/>
-                <path d="M30 35 C30 22, 48 16, 68 22 L72 20 C72 12, 50 8, 28 20 Z" fill="#D9482B"/>
-                <path d="M32 32 C32 24, 46 18, 64 22 L68 22 C68 14, 48 10, 30 22 Z" fill="#F28C28"/>
-                {/* Eyes */}
-                <ellipse cx="42" cy="44" rx="3" ry="3.5" fill="#2A1B16"/>
-                <ellipse cx="58" cy="44" rx="3" ry="3.5" fill="#2A1B16"/>
-                <circle cx="43" cy="43" r="1" fill="white"/>
-                <circle cx="59" cy="43" r="1" fill="white"/>
-                {/* Smile */}
-                <path d="M42 54 Q50 62, 58 54" fill="none" stroke="#2A1B16" strokeWidth="2.5" strokeLinecap="round"/>
-                {/* Earrings */}
-                <circle cx="28" cy="48" r="3" fill="#F7B733"/>
-                <circle cx="72" cy="48" r="3" fill="#F7B733"/>
-                {/* Shoulders */}
-                <path d="M20 72 C20 65, 35 60, 50 62 C65 60, 80 65, 80 72 L80 100 L20 100Z" fill="#D9482B"/>
-                <path d="M30 72 C30 67, 40 64, 50 65 C60 64, 70 67, 70 72 L70 100 L30 100Z" fill="#F7B733"/>
-              </svg>
+      <div className="relative z-10 mx-auto max-w-[520px] px-4 pb-10 pt-5 sm:px-5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="h-[76px] w-[76px] shrink-0 overflow-hidden rounded-full border-[4px] border-white/85 bg-[#FFF4C8] shadow-[0_9px_25px_rgba(110,48,20,.22)]">
+              <img src="/brand/logo-baiana.svg" alt="Logo Marmitex da Baiana" className="h-full w-full object-cover" />
             </div>
 
-            <div>
-              <h1 className="font-display text-[1.4rem] font-bold text-white leading-tight drop-shadow-sm">
-                Marmitex
-                <br />
-                da Baiana
-              </h1>
-              <p className="text-[9px] text-white/80 font-semibold tracking-[0.15em] uppercase mt-0.5">
+            <div className="min-w-0">
+              <div className="font-display text-[1.65rem] font-black leading-[.91] tracking-[-.035em] drop-shadow-[0_1px_0_rgba(255,255,255,.3)] sm:text-[1.85rem]">
+                <span className="block text-[#2A1B16]">Marmitex</span>
+                <span className="block text-[#A72F1C]">da Baiana</span>
+              </div>
+              <p className="mt-2 max-w-[210px] text-[9px] font-extrabold uppercase tracking-[.15em] text-[#6D2B18]/85">
                 Sabor caseiro com alma baiana
               </p>
             </div>
           </div>
 
-          {/* Cart button */}
           <button
             onClick={() => setIsOpen(true)}
-            className="relative p-2.5 hover:bg-white/10 rounded-full transition-all"
+            aria-label="Abrir carrinho"
+            className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/90 text-[#7B301B] shadow-md transition hover:scale-105 active:scale-95"
           >
-            <ShoppingCart className="w-6 h-6 text-white" />
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" />
+              <path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.55h7.8a2 2 0 0 0 1.95-1.57L21 7H6" />
+            </svg>
             {totalItems > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 bg-baiano-red text-white text-[10px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center animate-bounce-in shadow">
+              <span className="absolute -right-1 -top-1 grid min-h-[20px] min-w-[20px] place-items-center rounded-full bg-[#D9482B] px-1 text-[10px] font-black text-white shadow">
                 {totalItems}
               </span>
             )}
           </button>
         </div>
 
-        {/* Store status */}
-        <div className="mt-3 flex justify-center">
-          <div
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold backdrop-blur-sm ${
-              isOpen
-                ? 'bg-white/20 text-white'
-                : 'bg-white/10 text-white/70'
-            }`}
-          >
-            <span
-              className={`w-1.5 h-1.5 rounded-full ${
-                isOpen ? 'bg-white animate-pulse' : 'bg-white/50'
-              }`}
-            />
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          <div className={`inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/85 px-3 py-1.5 text-[11px] font-extrabold shadow-sm ${isOpen ? 'text-[#106B43]' : 'text-[#A72F1C]'}`}>
+            <span className={`h-2 w-2 rounded-full ${isOpen ? 'bg-[#23A55A] animate-pulse' : 'bg-[#D9482B]'}`} />
             {isOpen ? 'Aberto agora' : 'Fechado agora'}
           </div>
+          <span className="rounded-full border border-white/35 bg-[#6F2A18]/12 px-3 py-1.5 text-[11px] font-bold text-[#6F2A18]">Entrega e retirada</span>
         </div>
       </div>
     </header>
